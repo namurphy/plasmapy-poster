@@ -1,0 +1,40 @@
+---
+title: "Optimizing Read Access for HDF5 Isotope Datasets in PlasmaPy"
+author:
+  - name: Nicholas A. Murphy
+    affiliations:
+      - name: "Center for Astrophysics | Harvard & Smithsonian"
+format:
+  sciposter-typst:
+    poster:
+      size: "a0"
+      columns: 3
+      theme: generic
+---
+
+# Introduction
+
+...
+
+# Methodology
+
+```{{python}}
+#| label: fig-plasma-density
+#| fig-cap: "Simulated electron density profile."
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x) * np.exp(-x/5)
+
+# Create the plot
+fig, ax = plt.subplots(figsize=(7, 5))
+ax.plot(x, y, linewidth=3, color='#0055A4')
+ax.set_xlabel("Time (s)", fontsize=14)
+ax.set_ylabel("Density (m⁻³)", fontsize=14)
+ax.grid(True, linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.show()
+```
