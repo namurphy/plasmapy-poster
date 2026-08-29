@@ -5,6 +5,8 @@
 
 import nox
 
+from time import sleep
+
 
 @nox.session
 def extensions(session: nox.Session) -> None:
@@ -14,6 +16,7 @@ def extensions(session: nox.Session) -> None:
         "add",
         "chrischizinski/quarto-sciposter",
         "--no-prompt",
+        *session.posargs,
         external=True,
     )
 
@@ -24,8 +27,13 @@ def render(session: nox.Session) -> None:
         "quarto",
         "render",
         "poster.qmd",
+#        "-to",
+#        "sciposter-typst",
+        *session.posargs,
         external=True,
     )
+
+    sleep(2)  # for running this with entr to look for file modifications
 
 
 if __name__ == "__main__":
