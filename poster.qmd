@@ -1,157 +1,216 @@
 ---
-title: "PlasmaPy: an open source Python package for plasma science"
+title: "PlasmaPy:  An open source Python package for plasma research and education"
 author:
   - name: Nick Murphy
     affiliations:
-      - name: "Center for Astrophysics | Harvard & Smithsonian"
-  - name: P. Heuer
-  - name: E. Everson
-  - name: S. Vincena
+      - name: "CfA"
+  - name: E. T. Everson
+    affiliations:
+      - name: University of California, Los Angeles
+  - name: D. Stańczak-Marikin
   - name: D. Schaffner
-  - name: E. Johnson
+    affiliations:
+      - name: Bryn Mawr College
+  - name: P. Heuer
+    affiliations:
+      - name: Laboratory for Laser Energetics 
+      - name: University of Rochester
   - name: J. Roberts
+    affiliations:
+      - name: University of Rochester
+  - name: E. Johnson
+    affiliations:
+      - name: University of Delaware
   - name: H. Bagherianlemraski
+    affiliations:
+      - name: MathWorks
+  - name: S. Vincena
+    affiliations:
+       - name: University of California, Los Angeles
+  # - name: P. Kozlowski
+  #   affiliations:
+  #     - name: LANL
+  - name: M. Haque
+    affiliations:
+      - name: Columbia University
+  - name: and many others
+
   
 mainfont: roboto
 format:
   sciposter-typst:
     poster:
-      size: "a0"
-      orientation: "portrait"
-      columns: 3
+      size: a1
+      keep-typ: true # ???
+
+      orientation: portrait
+      columns: 2
       theme: generic
-      base-font-size: 26pt
+
+      base-font-size: 20pt
+      code-fonts: [ "DejaVu Sans Mono" ]
+      #footer: "Rendered with Quarto + Typst"
+      #right: "github.com/namurphy/plasmapy-poster"
+      gutter: 0.5in
+      margin: 0.75in
+      logo-height: 0.75in
+
 logos:
   left: [ images/plasmapy-logo-1.png ]
+  right: [ images/cc-by.png ]
+  #right: [ images/nsf.png, images/doe.png, images/nasa.png ]
 ---
 
 # Abstract
 
 It's like Astropy, but for plasma science! ✨ 🐍
 
-# Most astrophysical fluid is plasma
+# Most astrophysical fluid is plasma!
 
-![Coronal mass ejection observed by the Solar Dynamics Observatory at 304 Å on 2011 June 7.](images/cme.png){#fig-cme width="100%"}
+![Coronal mass ejection observed by the Solar Dynamics Observatory at 304 Å on 2011 June 7.](images/cme.png){#fig-cme width="75%"}
 
-Astronomers often refer to any astrophysical fluid as ["gas,"]{style="color: #962309; font-weight: bold;"} regardless of its state of matter.
-However, 
-[gas]{style="color: #962309; font-weight: bold;"} 
-and 
-[plasma]{style="color: #0313d9; font-weight: bold;"} 
+**Plasma astrophysics is central to CfA science.**
+Astronomers often refer to any astrophysical fluid as ["gas,"]{style="color: #a33e00; font-weight: bold;"} regardless of the state of matter.
+However,
+[gas]{style="color: #a33e00; font-weight: bold;"} 
+and
+[plasma]{style="color: #004488; font-weight: bold;"} 
 exhibit 
-[qualitatively and quantitatively different behavior]{style="color: #26a3a9; font-weight: bold;"} 
-[on small and large scales]{style="color: #9623c9; font-weight: bold;"}.
-[Gas]{style="color: #962309; font-weight: bold;"} 
+[qualitatively and quantitatively different behavior]{style="color: #009e79; font-weight: bold;"} 
+[on both small and large scales]{style="color: #8b2662; font-weight: bold;"}.
+[Gas]{style="color: #a33e00; font-weight: bold;"} 
 particles interact via binary collisions, while charged particles in 
-[plasma]{style="color: #0313d9; font-weight: bold;"}
+[plasma]{style="color: #004488; font-weight: bold;"}
 exert long-range forces on each other, leading to
-[collective behavior]{style="color: #0313d9; font-weight: bold;"}.
-[Gas]{style="color: #962309; font-weight: bold;"}
+[collective behavior]{style="color: #004488; font-weight: bold;"}.
+[Gas]{style="color: #a33e00; font-weight: bold;"}
 dynamics are unaffected by 
-[magnetic fields]{style="color: #cc00cc; font-weight: bold;"},
+[magnetic fields]{style="color: #b85b00; font-weight: bold;"},
 while 
-[magnetic fields]{style="color: #cc00cc; font-weight: bold;"}
-strongly affect 
-[plasma]{style="color: #0313d9; font-weight: bold;"}.
+[magnetic fields]{style="color: #b85b00; font-weight: bold;"}
+strongly interact with
+[plasma]{style="color: #004488; font-weight: bold;"}.
 Even a tiny ionization fraction from cosmic rays or photoionization can cause a fluid to behave as a 
-[weakly ionized plasma]{style="color: #0313d9; font-weight: bold;"}.
-Hence, plasma astrophysics is crtical to CfA science!
+[weakly ionized plasma]{style="color: #004488; font-weight: bold;"}.
 
-*Note: Programming languages like Ruby and Julia have a convention that a function name ending with `!` denotes that the function changes the argument in-place. I advocate spelling "science" as "science!" to denote that doing science! fundamentally changes science!*
+<!--
+*Note: Programming languages like Ruby and Julia have a convention that a function name ending with `!` denotes that the function changes the argument in-place. I advocate spelling "science" as "science!" to denote that doing science! fundamentally changes science!.
+-->
 
 # Growing a software ecosystem
 
-**The mission of PlasmaPy is to grow an open source software ecosystem for plasma research and education.**
-A software ecosystem is a collection of software projects that are developed and co-evolve in the same environment.  A software ecosystem includes code, documentation, and tests.
-It includes educational elements, and it includes community. 
-Inspired directly by Astropy 🌌 and SunPy ☀️, PlasmaPy's first commit was at the CfA in office P-140. ✨
+**The mission of the PlasmaPy project is to grow an open source software ecosystem for plasma research and education.**
+A software ecosystem is a collection of software projects that are developed together and co-evolve in the same environment.
+It includes code, documentation, and tests.
+A software ecosystem includes educational elements, and it includes community. 
+Inspired directly by Astropy and SunPy, PlasmaPy was founded at the CfA — in office P-140.
 
-<!-- *Note: more recent commits have happened in P-137.* -->
-
-*Note: Software testing is the best thing since sliced arrays.* 🔢
-
-
-
-<!--
-To grow an open source software ecosystem for plasma research & education
-
-https://www.plasmapy.org
-
-https://docs.plasmapy.org
--->
-<!--
-# Building a software ecosystem
-
-- PlasmaPy core package ✨🐍
-  - Functionality needed across subdisciplines
-  - Interoperability with Astropy
-  - Coordination with the Python in Heliophysics Community (PyHC)
-- Aﬃliated packages
-  - For more specialized functionality
-- Educational resources
-  - Jupyter notebook example gallery
-- Community
-  - Contributor Covenant Code of Conduct
--->
-
-# PlasmaPy subpackages
-
-- `plasmapy.particles`: Object-oriented representations of particles and functions to access particle properties 
-
-- `plasmapy.formulary`: Formulas for commonly needed plasma parameters and transport coeﬃcients 
-
-- `plasmapy.dispersion`: Dispersion relation solvers for plasma waves
-
-- `plasmapy.analysis`: Analysis techniques for data from simulations, experiments, and observations
-
-- `plasmapy.diagnostics`: For plasma diagnostics such as Langmuir probes, proton radiography, and Thomson scattering
-
-- `plasmapy.simulation`: Contains a particle tracker
+PlasmaPy is an active participant in the **Python in Heliophysics Community (PyHC)**. 
+PyHC facilitates scientific discovery by growing open source Python software and community for solar and space physics, including through packages like SunPy, SpacePy, pySPEDAS, pysat, and PlasmaPy.
+In addition to showcasing packages, PyHC's fortnightly meetings often include continuing professional development for research software engineers (RSEs) — activities that would be beneficial to current and future RSEs at the CfA.
 
 # PlasmaPy capabilities
 
-- ⚛️ Create Particle and ParticleList objects
-- 🧮 Calculate plasma parameters
-- 💫 Track particle motions in EM ﬁelds
-- 🌊 Find plasma wave dispersion relations
-- 🌐 Find magnetic null points (prototype)
-- 🌡 Calculate thermalization ratio for solar wind plasma
-- 📉 Represent plasma equilibria
-- 📈 Analyze data from plasma diagnostics (e.g., Langmuir probes and Thomson scattering)
-- 💥 Create synthetic proton radiographs
+PlasmaPy has many useful capabilities for the astrophysical community.
+`Particle` and `ParticleList` provide object-oriented representations of particles.
+The `RelativisticBody` class allows straightforward conversion between velocity, the Lorentz factor, energy, and relativistic momentum.
+PlasmaPy contains a wide variety of functions to calculate plasma parameters, ranging from `Alfven_speed` and `gyroradius` to dielectric tensor elements and Braginskii transport coefficients.
+PlasmaPy's particle tracker was recently revamped and includes non-relativistic and relativistic Boris particle pushers.
+PlasmaPy allows the calculation of several types of plasma wave dispersion relations, and well as representations of 1D equilibria.
+PlasmaPy's synthetic charged particle radiography and Thomson scattering diagnostic analysis capabilities have been widely used to study laser-produced high energy density plasmas.
 
-# Example: plasmapy.particles
+::: {#tbl-subpackages tbl-colwidths="[15,85]"}
 
-```         
->>> from plasmapy.particles import Particle, ParticleList
->>> proton = Particle("p+")
->>> proton.mass
-<Quantity 1.67262192e-27 kg>
->>> proton.is_category("baryon")
-True
->>> helium_ions = ParticleList(["He-4 1+", "α"])
->>> helium_ions.charge
-<Quantity [1.60217663e-19, 3.20435327e-19] C>
+| Subpackage | Description |
+| ---------- | ----------- |
+| `particles` | Representations of particles in plasmas |
+| `formulary` | Formulae for plasma parameters and transport coefficients |
+| `dispersion` | Dispersion relation solvers for plasma waves |
+| `simulation` | Contains a particle tracker with a relativistic Boris pusher |
+| `diagnostics` | For plasma diagnostics such as Langmuir probes, proton radiography, and Thomson scattering |
+| `analysis` | Analysis tools for simulations, experiments, and observations |
+
+PlasmaPy subpackages, described further at `docs.plasmapy.org`.
+:::
+
+
+# Examples
+
+ PlasmaPy's documentation not only describes the how to use functions and classes, but also the underlying physics — in case you ever need to remember what the `Debye_length` and `upper_hybrid_frequency` signify.
+ The documentation includes numerous example Jupyter notebooks as educational resources. As an executable research poster, the following beginner examples were run using Quarto, Typst, and Jupyter (see `github.com/namurphy/plasmapy-poster`).
+
+```{python}
+from plasmapy.particles import Particle, ParticleList
+from plasmapy.formulary import plasma_frequency, RelativisticBody
+import astropy.units as u
 ```
 
-# Laboratory plasma astrophysics
+```{python}
+proton = Particle("p+")
+proton.mass  # interoperable with astropy.units
+```
+
+```{python}
+
+helium_ions = ParticleList(["He-4 1+", "α"])
+helium_ions.charge
+```
+
+```{python}
+plasma_frequency(n=0.1*u.cm**-3, particle="e-", to_hz=True)
+```
+
+```{python}
+p = RelativisticBody("proton", total_energy=1e16*u.eV)
+print(f"A proton at {p.total_energy.to('PeV')} has β={p.v_over_c} 🙀")
+```
+
+# Laboratory plasma astrophysics diagnostics
 
 Proton radiography involves launching protons through an exploding laser-produced plasma.
 Protons get deflected by electromagnetic fields before impacting the detector plane.
 Synthetic radiographs constrain the electromagnetic field configuration.
 
-![A synthetic proton radiograph of a high energy density plasma (credit: P. Heuer).](images/cpr.png){#fig-cme width="80%"}
+::: {#fig-radiographs layout-ncol=2}
+![](images/cpr.png)
 
-Diagnostics like these allow study of effects such as the Biermann battery — a proposed mechanism for creating seed magnetic fields in the early universe that later get amplified through dynamo activity.
+![](images/cpr2.png)
 
-# Documentation 
+A synthetic proton radiograph of a high energy density plasma (credit: P. Heuer).
+:::
+
+**Diagnostics like these allow study of effects such as the Biermann battery** — a proposed mechanism for creating seed magnetic fields in the early universe that later got amplified through dynamo activity.
+During one interactive PlasmaPy tutorial, a student managed to create a synthetic proton radiograph that looked like the Death Star (see G. Lucas et al. 1977, 1983).
+
+# Future work
+
+To learn more about our proposed development roadmap, we made our most recent NSF Cyberinfrastructure for Sustained Scientific Innovation proposal available on Zenodo at Murphy et al. (2025, doi: 10.1038/150405d0).
+
+# Acknowledgments
+
+This work has been supported by NSF CSSI award 1931388 and NASA HTM award 80NSSC25K0360.  
+
+**Fun fact:** I grew up north of Canada!
 
 
-PlasmaPy's extensive online documentation is at `docs.plasmapy.org`
+<!-- *Note: We can't use diagnostics like these in astrophysics!* -->
 
-*Note: one of the earliest reviews of PlasmaPy was from a graduate student here who said, "Your code has documentation."*
+<!-- # Documentation  -->
 
-# Growing a community of RSEs at the CfA
+<!-- # Tests
+
+PlasmaPy has 4745 tests.
+
+*Note: Software testing is the best thing since sliced arrays.* 🔢
+
+ -->
+
+
+<!-- PlasmaPy's extensive online documentation is at `docs.plasmapy.org` -->
+
+<!-- *Note: An early review of PlasmaPy was from a graduate student here who said: "Your code has documentation."* -->
+
+<!-- # Growing a community of RSEs at the CfA
 
 - A research software engineer (RSE) can be:
   - A scientist who writes software
@@ -161,13 +220,13 @@ PlasmaPy's extensive online documentation is at `docs.plasmapy.org`
   - But RSEs pre-date Fortran!
 - Challenges for the RSE community
   - Unclear educational & career path
-  - Software contributions valued less than publications
+  - Software contributions valued less than publications -->
 
-# Please cite software — not just software papers
+<!-- # Please cite software — not just software papers
 
 - PlasmaPy’s docs describe how to cite PlasmaPy ✅
-- Citing software really helps support projects! 📈
-
+- Citing software really helps support projects! 📈 -->
+<!-- 
 # Starting a CfA RSE exchange?
 
 - CfA projects frequently include code development
@@ -176,21 +235,26 @@ PlasmaPy's extensive online documentation is at `docs.plasmapy.org`
   - RSEs might be needed for a short time
   - Which RSEs with the needed skills are available?
 - An RSE exchange would let CfA scientists and RSEs to ﬁnd each other for projects and proposals
-- Part of a CfA Software & Data Convergence?
+- Part of a CfA Software & Data Convergence? -->
 
-# Final thoughts
+<!-- # Final thoughts
 
 - Plasma astrophysics is critical to CfA science
 - We are growing PlasmaPy as an open source software ecosystem for plasma research and education
 - PlasmaPy is interoperable with Astropy and the Python in Heliophysics Community (PyHC)
 - The CfA needs RSE professional development for all career and educational stages
   - Create an undergrad/graduate course on RSEing?
-- Join `#research-software-engineering` on Slack!
+- Join `#research-software-engineering` on Slack! -->
 
+<!--
 # Also we launched PlasmaPy into space
-
 SD card storing PlasmaPy 0.7.0
-
 Rocket payload, to which the SD card was taped for some reason
-
 Fun fact: I grew up north of Canada!
+..>
+
+<!-- 
+# References
+
+::: {#refs}
+::: -->
