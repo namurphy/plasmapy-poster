@@ -11,7 +11,7 @@ author:
   - name: D. Schaffner
     affiliations:
       - name: Bryn Mawr College
-  - name: P. Heuer
+  - name: P. V. Heuer
     affiliations:
       - name: Laboratory for Laser Energetics 
       - name: University of Rochester
@@ -40,19 +40,19 @@ mainfont: roboto
 format:
   sciposter-typst:
     poster:
-      size: a1
+      size: "36x24"
       keep-typ: true # ???
 
       orientation: portrait
       columns: 2
       theme: generic
 
-      base-font-size: 20pt
+      base-font-size: 21pt
       code-fonts: [ "DejaVu Sans Mono" ]
       #footer: "Rendered with Quarto + Typst"
       #right: "github.com/namurphy/plasmapy-poster"
-      gutter: 0.5in
-      margin: 0.75in
+      gutter: 0.6in
+      margin: 1in
       logo-height: 0.75in
 
 logos:
