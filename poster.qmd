@@ -71,7 +71,7 @@ It's like Astropy, but for plasma science! ✨ 🐍
 
 **Plasma astrophysics is central to CfA science.**
 Astronomers often refer to any astrophysical fluid as ["gas,"]{style="color: #a33e00; font-weight: bold;"} regardless of the state of matter.
-However,
+As distinct states of matter,
 [gas]{style="color: #a33e00; font-weight: bold;"} 
 and
 [plasma]{style="color: #004488; font-weight: bold;"} 
